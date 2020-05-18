@@ -45,15 +45,14 @@ def meniu():
             ])
 
         elif meniul_meu == 2:
+            afiseaza_administratori()
             from Animate import animata
+            animata()
             adauga_animata([
-                (animata(input('Adauga titlul animatiei: '),
-                       input('Adauga durata filmului: '),
-                       int(input('Adauga sala in cifre: ')),
-                       int(input('Adauga varsta minima pentru vizionare in cifre: ')),
-                       input("Adauga 'NU' daca filmul nu este dublat si 'DA' daca este dublat"),
-                       input("Adauga 'NU' daca filmul are limba dublare sau limba in care este dublat: "),
-                       input('Adauga categoria din care face parte acest film: ')))
+                ((animata.titlu, animata.durata, animata.sala, animata.varsta_minima, animata.audio_dublat, animata.limba_dublare,
+                 animata.categorie, int(input('Scrie in in cifre idul unuia dintre administratori: ')),
+                 input("Scrie 'ARHIVA' pentru filmele care au rulat sau 'RULEAZA ACUM' pentru filmele"
+                       " care ruleaza in prezent: ")))
             ])
 
         elif meniul_meu == 3:

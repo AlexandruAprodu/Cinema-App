@@ -4,7 +4,7 @@ DB = mysql.connector.connect(
     host="127.0.0.2",
     user="root",
     passwd="1234",
-    database="Cinematograf"
+    # database="Cinematograf"
 )
 CURSOR = DB.cursor()
 
@@ -50,8 +50,7 @@ def create_filme():
             PRIMARY KEY (id_film),
             FOREIGN KEY(sala) REFERENCES `sala`(id_sala),
             FOREIGN KEY (adaugat_de) REFERENCES `Administratori`(id_administrator))
-    #
-    # """)
+     """)
 
 def adauga_drama(drama):
     CURSOR.executemany("""INSERT INTO Filme(titlu_film, durata_film, sala, varsta_minima, audio_dublat, limba_dublare, 
