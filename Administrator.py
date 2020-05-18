@@ -23,5 +23,4 @@ class Administrator:
 
     """
 
-administrator1 = Administrator('Ardin', 'Cioparca', 'ardin_cioparca@cinema.ro', 1)
-administrator2 = Administrator('Hazara', 'Ramadan', 'hazara_ramadan@cinema.ro', 2)
+administrator = Administrator
