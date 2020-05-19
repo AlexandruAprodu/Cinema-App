@@ -1,4 +1,4 @@
-from Database import *
+from Functii_aplicatie import *
 
 
 class Cinematograf:
@@ -26,5 +26,5 @@ class Cinematograf:
 
 
 cinema_phoenix = Cinematograf('Phoenix', Cinematograf.adresa_cinematograf, Cinematograf.capacitate_totala_cinematograf)
-# print(Cinematograf.filme_rulare_prezent)
-# print(Cinematograf.filme_arhiva)
+print(Cinematograf.filme_rulare_prezent)
+print(Cinematograf.filme_arhiva)

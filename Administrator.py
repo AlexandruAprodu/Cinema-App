@@ -6,13 +6,3 @@ class Administrator:
         self.prenume = prenume
         self.email_address = email_address
 
-    def __call__(self, *args, **kwargs):
-        return self
-
-
-
-administrator = Administrator(
-    input('Scrie numele administratorului: '),
-    input('Scrie prenumele administratorului: '),
-    input('Scrie adresa de email: ')
-)

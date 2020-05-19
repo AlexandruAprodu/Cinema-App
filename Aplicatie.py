@@ -1,17 +1,15 @@
-from Database import db_seeder_drame, db_seeder_animate, adauga_administrator, verifica_filme,\
+from Functii_aplicatie import adauga_administrator, verifica_filme,\
     afiseaza_film, elimina_film, afiseaza_numar_filme, afiseaza_nume_filme, schimbare_limita_de_varsta,\
     afiseaza_toate_filmele, selecteaza_film, adauga_drama, adauga_animata, afiseaza_administratori
-from db_seeder import db_seeder
+from Drame import *
+from Animate import *
+from Administrator import *
 
-
-
-from Administrator import administrator
 
 
 
 def meniu():
     while True:
-        db_seeder()
         meniul_meu = int(input("""
     
             1. adauga_drama
@@ -30,9 +28,17 @@ def meniu():
 
 
         if meniul_meu == 1:
+
+            drama = Drame(input('Adauga titlul dramei: '),
+                          input('Adauga durata filmului: '),
+                          int(input('Adauga sala in cifre: ')),
+                          int(input('Adauga varsta minima pentru vizionare in cifre: ')),
+                          input("Adauga 'NU' daca filmul nu este dublat si 'DA' daca este dublat"),
+                          input("Adauga 'NU' daca filmul are limba dublare sau limba in care este dublat: "),
+                          input('Adauga categoria din care face parte acest film: '))
+
             afiseaza_administratori()
-            from Drame import drama
-            drama()
+
             adauga_drama([
                 (drama.titlu, drama.durata, drama.sala, drama.varsta_minima, drama.audio_dublat, drama.limba_dublare,
                  drama.categorie, int(input('Scrie in in cifre idul unuia dintre administratori: ')),
@@ -43,10 +49,16 @@ def meniu():
 
         elif meniul_meu == 2:
             afiseaza_administratori()
-            from Animate import animata
-            animata()
+            animata = Animate(input('Adauga titlul animatiei: '),
+                              input('Adauga durata filmului: '),
+                              int(input('Adauga sala in cifre: ')),
+                              int(input('Adauga varsta minima pentru vizionare in cifre: ')),
+                              input("Adauga 'NU' daca filmul nu este dublat si 'DA' daca este dublat"),
+                              input("Adauga 'NU' daca filmul are limba dublare sau limba in care este dublat: "),
+                              input('Adauga categoria din care face parte acest film: '))
             adauga_animata([
-                ((animata.titlu, animata.durata, animata.sala, animata.varsta_minima, animata.audio_dublat, animata.limba_dublare,
+                ((animata.titlu, animata.durata, animata.sala, animata.varsta_minima, animata.audio_dublat,
+                  animata.limba_dublare,
                  animata.categorie, int(input('Scrie in in cifre idul unuia dintre administratori: ')),
                  input("Scrie 'ARHIVA' pentru filmele care au rulat in trecut sau 'RULEAZA ACUM' pentru filmele"
                        " care ruleaza in prezent: ")))
@@ -54,10 +66,14 @@ def meniu():
             print('Filmul a fost adaugat cu succes!')
 
         elif meniul_meu == 3:
-            from Administrator import administrator
-            administrator()
+
+            administrator = Administrator(
+                input('Scrie numele administratorului: '),
+                input('Scrie prenumele administratorului: '),
+                input('Scrie adresa de email: ')
+            )
             adauga_administrator([
-                administrator.nume, administrator.prenume, administrator.email_address
+                (administrator.nume, administrator.prenume, administrator.email_address)
             ])
             print('Administratorul a fost adaugat cu succes!')
         elif meniul_meu == 4:
@@ -77,13 +93,13 @@ def meniu():
         elif meniul_meu == 7:
             x = lambda x: True if x in film else False
             for film in afiseaza_numar_filme():
-                if x('animate'):
+                if x('ANIMATE'):
                     print(film)
 
         elif meniul_meu == 8:
-            x = lambda x: True if x in film else False
+            y = lambda x: True if x in film else False
             for film in afiseaza_numar_filme():
-                if x('drama'):
+                if y('drama'):
                     print(film)
 
         elif meniul_meu == 9:
