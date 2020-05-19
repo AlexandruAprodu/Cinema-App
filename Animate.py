@@ -9,6 +9,3 @@ class Animate(Film):
         self.limba_dublare = limba_dublare
         self.categorie = categorie
 
-    # def __call__(self, *args, **kwargs):
-    #     return self
-

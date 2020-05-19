@@ -8,42 +8,43 @@ DB = mysql.connector.connect(
 )
 CURSOR = DB.cursor()
 
+
 def adauga_drama(drama):
-    CURSOR.executemany("""INSERT INTO Cinematograf.Filme(titlu_film, durata_film, sala, varsta_minima, audio_dublat, limba_dublare, 
-                                                categorie, adaugat_de, informatii_rulare) 
-                                                VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)""", drama)
+    CURSOR.executemany("""INSERT INTO Cinematograf.Filme(titlu_film, durata_film, sala, varsta_minima, audio_dublat,
+     limba_dublare, categorie, adaugat_de, informatii_rulare) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)""", drama)
     return DB.commit()
 
 
 def adauga_animata(animata):
-    CURSOR.executemany("""INSERT INTO Cinematograf.Filme(titlu_film, durata_film, sala, varsta_minima, audio_dublat, limba_dublare, 
-                                                    categorie, adaugat_de, informatii_rulare) 
-                                                 VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)""", animata)
+    CURSOR.executemany("""INSERT INTO Cinematograf.Filme(titlu_film, durata_film, sala, varsta_minima, audio_dublat,
+     limba_dublare, VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)""", animata)
     return DB.commit()
+
 
 def db_seeder_drame(drame):
 
-    CURSOR.executemany("""INSERT INTO Cinematograf.Filme(titlu_film, durata_film, sala, varsta_minima, audio_dublat, limba_dublare, 
-                                            categorie, adaugat_de, informatii_rulare) 
-                                            VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)""", drame)
+    CURSOR.executemany("""INSERT INTO Cinematograf.Filme(titlu_film, durata_film, sala, varsta_minima, audio_dublat,
+     limba_dublare, categorie, adaugat_de, informatii_rulare) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)""", drame)
     return DB.commit()
 
 
 def db_seeder_animate(animate):
-    CURSOR.executemany("""INSERT INTO Cinematograf.Filme(titlu_film, durata_film, sala, varsta_minima, audio_dublat, limba_dublare, 
-                                            categorie, adaugat_de, informatii_rulare) 
-                                            VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)""", animate)
+    CURSOR.executemany("""INSERT INTO Cinematograf.Filme(titlu_film, durata_film, sala, varsta_minima, audio_dublat,
+     limba_dublare,  categorie, adaugat_de, informatii_rulare) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)""", animate)
     return DB.commit()
 
 
 def adauga_administrator(administrator):
-    CURSOR.executemany("""INSERT INTO Cinematograf.administratori(nume, prenume, email_address) VALUES(%s, %s, %s)""", administrator)
+    CURSOR.executemany("""INSERT INTO Cinematograf.administratori(nume, prenume, email_address)
+                          VALUES(%s, %s, %s)""", administrator)
     return DB.commit()
+
 
 def verifica_filme():
     CURSOR.execute("""SELECT * FROM Cinematograf.filme WHERE informatii_rulare = 'RULEAZA ACUM'""")
     fetch = CURSOR.fetchall()
     return fetch
+
 
 def arhiva_filme():
     CURSOR.execute("""SELECT * FROM Cinematograf.filme WHERE informatii_rulare = 'ARHIVA'""")

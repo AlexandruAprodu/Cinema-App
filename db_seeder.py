@@ -78,11 +78,11 @@ CURSOR.executemany("""INSERT INTO Cinematograf.Filme(titlu_film, durata_film, sa
 DB.commit()
 
 animate = [
-    ('REGATUL DE GHEAȚĂ II', '120 minute', 3, 0, 'DA', 'ROMANA', 'ANIMATE', 2, 'RULEAZA ACUM'),
-    ('SPIONI DEGHIZATI', '130 minute', 3, 0, 'DA', 'ROMANA', 'ANIMATE', 2, 'RULEAZA ACUM'),
-    ('CATEII ARCTICI:CURSA PE ZAPADA ', '110 minute', 3, 0, 'DA', 'ROMANA', 'ANIMATE', 2, 'ARHIVA'),
-    ('PRINTESA "CONDURI ROSII" SI CEI 7 PITICI', '110 minute', 3, 0, 'DA', 'ROMANA', 'ANIMATE', 2, 'ARHIVA'),
-    ('DOCTOR DOLITTLE', '130 minute', 3, 0, 'DA', 'ROMANA', 'ANIMATE', 2, 'RULEAZA ACUM')
+    ('REGATUL DE GHEAȚĂ II', '120 minute', 3, 0, 'DA', 'ROMANA', 'animatie', 2, 'RULEAZA ACUM'),
+    ('SPIONI DEGHIZATI', '130 minute', 3, 0, 'DA', 'ROMANA', 'animatie', 2, 'RULEAZA ACUM'),
+    ('CATEII ARCTICI:CURSA PE ZAPADA ', '110 minute', 3, 0, 'DA', 'ROMANA', 'animatie', 2, 'ARHIVA'),
+    ('PRINTESA "CONDURI ROSII" SI CEI 7 PITICI', '110 minute', 3, 0, 'DA', 'ROMANA', 'animatie', 2, 'ARHIVA'),
+    ('DOCTOR DOLITTLE', '130 minute', 3, 0, 'DA', 'ROMANA', 'animatie', 2, 'RULEAZA ACUM')
 ]
 
 CURSOR.executemany("""INSERT INTO Cinematograf.Filme(titlu_film, durata_film, sala, varsta_minima, audio_dublat,

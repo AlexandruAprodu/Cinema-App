@@ -1,31 +1,28 @@
-from Functii_aplicatie import adauga_administrator, verifica_filme,\
-    afiseaza_film, elimina_film, afiseaza_numar_filme, afiseaza_nume_filme, schimbare_limita_de_varsta,\
+from Functii_aplicatie import adauga_administrator, verifica_filme, \
+    afiseaza_film, elimina_film, afiseaza_numar_filme, afiseaza_nume_filme, schimbare_limita_de_varsta, \
     afiseaza_toate_filmele, selecteaza_film, adauga_drama, adauga_animata, afiseaza_administratori
 from Drame import *
 from Animate import *
 from Administrator import *
 
 
-
-
 def meniu():
     while True:
         meniul_meu = int(input("""
     
-            1. adauga_drama
-            2. adauga_animate
-            3. adauga_administrator
-            4. verifica_filme 
-            5. afiseaza_film 
-            6. elimina_film 
-            7. afiseaza_animatii
-            8. afiseaza_drame
-            9. afiseaza_numar_filme
-            10.schimba limita de varsta pentru vizionare filme
+            1. Adauga_drama
+            2. Adauga_animate
+            3. Adauga_administrator
+            4. Verifica_filme 
+            5. Afiseaza_film 
+            6. Elimina_film 
+            7. Afiseaza_animatii
+            8. Afiseaza_drame
+            9. Afiseaza_numar_filme
+            10. Schimba limita de varsta pentru vizionare filme
             11. Quit
     
             """))
-
 
         if meniul_meu == 1:
 
@@ -35,7 +32,7 @@ def meniu():
                           int(input('Adauga varsta minima pentru vizionare in cifre: ')),
                           input("Adauga 'NU' daca filmul nu este dublat si 'DA' daca este dublat"),
                           input("Adauga 'NU' daca filmul are limba dublare sau limba in care este dublat: "),
-                          input('Adauga categoria din care face parte acest film: '))
+                          input('Adauga categoria ["animatie" / "drama"]din care face parte acest film: '))
 
             afiseaza_administratori()
 
@@ -55,13 +52,13 @@ def meniu():
                               int(input('Adauga varsta minima pentru vizionare in cifre: ')),
                               input("Adauga 'NU' daca filmul nu este dublat si 'DA' daca este dublat"),
                               input("Adauga 'NU' daca filmul are limba dublare sau limba in care este dublat: "),
-                              input('Adauga categoria din care face parte acest film: '))
+                              input('Adauga categoria ["animatie" / "drama"]din care face parte acest film: '))
             adauga_animata([
                 ((animata.titlu, animata.durata, animata.sala, animata.varsta_minima, animata.audio_dublat,
                   animata.limba_dublare,
-                 animata.categorie, int(input('Scrie in in cifre idul unuia dintre administratori: ')),
-                 input("Scrie 'ARHIVA' pentru filmele care au rulat in trecut sau 'RULEAZA ACUM' pentru filmele"
-                       " care ruleaza in prezent: ")))
+                  animata.categorie, int(input('Scrie in in cifre idul unuia dintre administratori: ')),
+                  input("Scrie 'ARHIVA' pentru filmele care au rulat in trecut sau 'RULEAZA ACUM' pentru filmele"
+                        " care ruleaza in prezent: ")))
             ])
             print('Filmul a fost adaugat cu succes!')
 
@@ -91,9 +88,9 @@ def meniu():
             elimina_film(int(input('Scrie numele filmului pe care doresti sa il stergi: ')))
 
         elif meniul_meu == 7:
-            x = lambda x: True if x in film else False
+            y = lambda x: True if x in film else False
             for film in afiseaza_numar_filme():
-                if x('ANIMATE'):
+                if y('animatie'):
                     print(film)
 
         elif meniul_meu == 8:

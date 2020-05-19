@@ -13,9 +13,9 @@
 Edit `db_seeder.py` and set 
     
 ```python
-    host="127.0.0.2",
-    user="root",
-    passwd="1234"
+host="127.0.0.2",
+user="root",
+passwd="1234"
 ```
 
 Then run:
